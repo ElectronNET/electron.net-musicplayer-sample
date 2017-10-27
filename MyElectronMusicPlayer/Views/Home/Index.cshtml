@@ -1,0 +1,34 @@
+﻿@model List<string>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Electron Music Player</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h3>My Music</h3>
+    <ul>
+        @foreach (string musicFile in Model)
+        {
+            <li>
+                 @System.IO.Path.GetFileNameWithoutExtension(musicFile)
+
+                <button onclick="playMusic('@musicFile.Replace(@"\", "/")')">Play</button>
+            </li>
+        }
+    </ul>
+
+    <script>
+
+        function playMusic(musicFile) {
+            debugger;
+            let audio = new Audio(`file:///${musicFile}`);
+            audio.play();
+        }
+
+    </script>
+</body>
+</html>

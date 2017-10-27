@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using ElectronNET.API;
 
 namespace MyElectronMusicPlayer
 {
@@ -20,6 +21,7 @@ namespace MyElectronMusicPlayer
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseElectron(args)
                 .Build();
     }
 }
